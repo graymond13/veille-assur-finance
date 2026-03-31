@@ -73,7 +73,6 @@ def render_day_page(run_date: str, articles: list[dict], title: str, home: bool)
     <header class="hero">
       <p class="eyebrow">Veille quotidienne assurance / finance / régulation</p>
       <h1>{html.escape(title)}</h1>
-      <p class="lede">Sélection éditoriale resserrée, sans republication des articles déjà publiés.</p>
       <p class="nav">{nav}</p>
     </header>
 

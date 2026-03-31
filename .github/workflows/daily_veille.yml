@@ -3,7 +3,7 @@ name: Daily veille
 on:
   workflow_dispatch:
   schedule:
-    - cron: '55 11 * * 1-5'
+    - cron: '00 08 * * 1-6'
       timezone: 'Europe/Paris'
 
 concurrency:

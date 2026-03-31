@@ -183,12 +183,12 @@ def render_rss(run_date: str, articles: list[dict], base_url: str = "") -> str:
 def base_css() -> str:
     return """
 :root {
-  --bg: #f5f7fb;
-  --card: #ffffff;
-  --ink: #152033;
-  --muted: #526079;
-  --line: #d8dfeb;
-  --accent: #204ecf;
+  --bg: #0f172a;
+  --card: #1e293b;
+  --ink: #e2e8f0;
+  --muted: #94a3b8;
+  --line: #334155;
+  --accent: #3b82f6;
 }
 * { box-sizing: border-box; }
 body {

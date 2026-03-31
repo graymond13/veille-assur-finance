@@ -202,11 +202,12 @@ a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 .container { max-width: 1080px; margin: 0 auto; padding: 32px 20px 72px; }
 .hero {
-  background: linear-gradient(135deg, #ffffff, #eef3ff);
+  background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 28px;
+  border-radius: 16px;
+  padding: 18px;
   margin-bottom: 24px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
 }
 .eyebrow { text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-size: .8rem; }
 .lede, .nav, .meta { color: var(--muted); }

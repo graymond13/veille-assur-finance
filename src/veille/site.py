@@ -242,7 +242,7 @@ a:hover { text-decoration: underline; }
 table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
+  background: var(--card);
   border: 1px solid var(--line);
   border-radius: 14px;
   overflow: hidden;

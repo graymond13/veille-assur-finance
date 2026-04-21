@@ -10,6 +10,9 @@ settings:
   base_url: ""
 
 sources:
+  # -----------------------------
+  # RÉGULATION / SUPERVISION
+  # -----------------------------
   - id: eba
     name: European Banking Authority
     kind: rss
@@ -19,16 +22,113 @@ sources:
     url: https://www.eba.europa.eu/news-press/news/rss.xml
     enabled: true
 
-  - id: ecb
-    name: European Central Bank
+  - id: ecb_press
+    name: ECB - Press / speeches / interviews
     kind: rss
-    category: regulation_institutions
+    category: finance_markets
     quality: 95
     language: en
     url: https://www.ecb.europa.eu/rss/press.html
     enabled: true
 
-  - id: eiopa
+  - id: esrb_press
+    name: ESRB - Press releases / speeches / interviews
+    kind: rss
+    category: regulation_institutions
+    quality: 94
+    language: en
+    url: https://www.esrb.europa.eu/rss/press.xml
+    enabled: true
+
+  - id: bis_press
+    name: BIS - Press releases
+    kind: rss
+    category: finance_markets
+    quality: 92
+    language: en
+    url: https://www.bis.org/doclist/all_pressrels.rss
+    enabled: true
+
+  - id: amf_regulation_fr
+    name: AMF - Réglementation
+    kind: rss
+    category: regulation_institutions
+    quality: 95
+    language: fr
+    url: https://www.amf-france.org/fr/flux-rss/display/31
+    enabled: true
+
+  - id: amf_communiques_fr
+    name: AMF - Communiqués / sanctions
+    kind: rss
+    category: regulation_institutions
+    quality: 94
+    language: fr
+    url: https://www.amf-france.org/fr/flux-rss/display/23
+    enabled: true
+
+  - id: acpr_actualites
+    name: ACPR - Actualités
+    kind: scrape
+    category: assurance
+    quality: 93
+    language: fr
+    url: https://acpr.banque-france.fr/fr/actualites
+    enabled: true
+    require_url_contains:
+      - /fr/
+    item_selectors:
+      - main article
+      - .views-row
+      - .card
+      - article
+    title_selectors:
+      - h3 a
+      - h2 a
+      - a
+    link_selectors:
+      - h3 a
+      - h2 a
+      - a
+    date_selectors:
+      - time
+      - .date
+      - span
+    summary_selectors:
+      - p
+
+  - id: esma_news
+    name: ESMA News
+    kind: scrape
+    category: regulation_institutions
+    quality: 95
+    language: en
+    url: https://www.esma.europa.eu/press-news/esma-news
+    enabled: true
+    require_url_contains:
+      - /press-news/esma-news/
+    item_selectors:
+      - main article
+      - .view-content .views-row
+      - .search-results__item
+      - article
+    title_selectors:
+      - h3 a
+      - h2 a
+      - a
+    link_selectors:
+      - h3 a
+      - h2 a
+      - a
+    date_selectors:
+      - time
+      - .date-display-single
+      - .field--name-field-publication-date
+      - .date
+    summary_selectors:
+      - p
+
+  - id: eiopa_media
     name: EIOPA Media
     kind: scrape
     category: assurance
@@ -60,100 +160,81 @@ sources:
     summary_selectors:
       - p
 
-  - id: esma
-    name: ESMA News
-    kind: scrape
-    category: regulation_institutions
-    quality: 95
+  # -----------------------------
+  # GÉOPOLITIQUE / POLITIQUE À IMPACT
+  # -----------------------------
+  - id: consilium_press
+    name: Council of the EU - Press releases
+    kind: rss
+    category: politique_europeenne
+    quality: 93
     language: en
-    url: https://www.esma.europa.eu/press-news/esma-news
-    enabled: true
-    require_url_contains:
-      - /press-news/esma-news/
-    item_selectors:
-      - main article
-      - .view-content .views-row
-      - .search-results__item
-      - article
-    title_selectors:
-      - h3 a
-      - h2 a
-      - a
-    link_selectors:
-      - h3 a
-      - h2 a
-      - a
-    date_selectors:
-      - time
-      - .date-display-single
-      - .field--name-field-publication-date
-      - .date
-    summary_selectors:
-      - p
-
-  - id: imf
-    name: IMF News
-    kind: scrape
-    category: finance_markets
-    quality: 88
-    language: en
-    url: https://www.imf.org/en/news
-    enabled: true
-    require_url_contains:
-      - /en/News/
-    item_selectors:
-      - main article
-      - .imf-listing-item
-      - .coveo-result-frame
-      - article
-    title_selectors:
-      - h3 a
-      - h2 a
-      - a
-    link_selectors:
-      - h3 a
-      - h2 a
-      - a
-    date_selectors:
-      - time
-      - .imf-date
-      - .news-date
-      - .date
-    summary_selectors:
-      - p
-
-  - id: google_assurance_fr
-    name: Google News – assurance FR
-    kind: rss
-    category: assurance
-    quality: 80
-    language: fr
-    url: "https://news.google.com/rss/search?q=(assurance%20OR%20assureur%20OR%20assureurs%20OR%20r%C3%A9assurance%20OR%20insurtech%20OR%20%22Solvabilit%C3%A9%20II%22)%20when:3d&hl=fr&gl=FR&ceid=FR:fr"
+    url: https://www.consilium.europa.eu/en/rss/pressreleases.ashx
     enabled: true
 
-  - id: google_banque_finance_fr
-    name: Google News – banque / finance FR
-    kind: rss
-    category: finance_markets
-    quality: 80
-    language: fr
-    url: "https://news.google.com/rss/search?q=(banque%20OR%20banques%20OR%20finance%20OR%20%C3%A9pargne%20OR%20gestion%20d%27actifs%20OR%20fintech%20OR%20march%C3%A9s%20financiers)%20when:3d&hl=fr&gl=FR&ceid=FR:fr"
-    enabled: true
-
-  - id: google_regulation_financiere_fr
-    name: Google News – réglementation financière FR
-    kind: rss
-    category: regulation_institutions
-    quality: 80
-    language: fr
-    url: "https://news.google.com/rss/search?q=(r%C3%A9glementation%20financi%C3%A8re%20OR%20conformit%C3%A9%20financi%C3%A8re%20OR%20fraude%20financi%C3%A8re%20OR%20cybers%C3%A9curit%C3%A9%20financi%C3%A8re%20OR%20DORA%20OR%20LCB-FT%20OR%20%22lutte%20contre%20le%20blanchiment%22)%20when:3d&hl=fr&gl=FR&ceid=FR:fr"
-    enabled: true
-
-  - id: google_geopolitique_impact_fr
-    name: Google News – géopolitique à impact FR
+  - id: ec_trade_news
+    name: European Commission - EU Trade News
     kind: rss
     category: geopolitique_major
-    quality: 80
+    quality: 91
+    language: en
+    url: https://policy.trade.ec.europa.eu/node/2/rss_en
+    enabled: true
+
+  - id: europarl_press
+    name: European Parliament - Press releases
+    kind: rss
+    category: politique_europeenne
+    quality: 87
+    language: en
+    url: https://www.europarl.europa.eu/rss/doc/press-releases/en.xml
+    enabled: true
+
+  - id: europarl_external
+    name: European Parliament - External relations
+    kind: rss
+    category: geopolitique_major
+    quality: 88
+    language: en
+    url: https://www.europarl.europa.eu/rss/topic/903/en.xml
+    enabled: true
+
+  - id: europarl_econ_monetary
+    name: European Parliament - Economic and monetary affairs
+    kind: rss
+    category: politique_europeenne
+    quality: 89
+    language: en
+    url: https://www.europarl.europa.eu/rss/topic/907/en.xml
+    enabled: true
+
+  # -----------------------------
+  # GOOGLE NEWS = SEULEMENT EN COMPLÉMENT,
+  # AVEC REQUÊTES ULTRA-CIBLÉES
+  # -----------------------------
+  - id: google_assurance_sector_fr
+    name: Google News - assurance sectorielle FR
+    kind: rss
+    category: assurance
+    quality: 76
     language: fr
-    url: "https://news.google.com/rss/search?q=((sanctions%20OR%20droits%20de%20douane%20OR%20p%C3%A9trole%20OR%20gaz%20OR%20%C3%A9nergie%20OR%20transport%20maritime%20OR%20risque%20pays)%20AND%20(finance%20OR%20assurance%20OR%20march%C3%A9s%20OR%20commerce))%20when:3d&hl=fr&gl=FR&ceid=FR:fr"
+    url: "https://news.google.com/rss/search?q=((assurance%20OR%20assureur%20OR%20assureurs%20OR%20r%C3%A9assurance%20OR%20r%C3%A9assureur%20OR%20insurtech%20OR%20%22assurance-vie%22%20OR%20%22Solvabilit%C3%A9%20II%22)%20AND%20(prime%20OR%20sinistre%20OR%20mutuelle%20OR%20courtage%20OR%20supervision%20OR%20r%C3%A9glementation%20OR%20solvabilit%C3%A9))%20-football%20-rugby%20-basket%20-tennis%20-ligue%20-match%20-PSG%20-OM%20when:3d&hl=fr&gl=FR&ceid=FR:fr"
+    enabled: true
+
+  - id: google_regtech_lcbft_dora_fr
+    name: Google News - DORA / LCB-FT / conformité FR
+    kind: rss
+    category: regulation_institutions
+    quality: 78
+    language: fr
+    url: "https://news.google.com/rss/search?q=((DORA%20OR%20LCB-FT%20OR%20AML%20OR%20KYC%20OR%20%22lutte%20contre%20le%20blanchiment%22%20OR%20%22sanctions%20financi%C3%A8res%22%20OR%20%22cybers%C3%A9curit%C3%A9%20financi%C3%A8re%22)%20AND%20(banque%20OR%20assurance%20OR%20finance%20OR%20assureur%20OR%20r%C3%A9gulateur))%20-football%20-rugby%20-sport%20when:3d&hl=fr&gl=FR&ceid=FR:fr"
+    enabled: true
+
+  - id: google_geopolitique_finance_fr
+    name: Google News - géopolitique à impact finance FR
+    kind: rss
+    category: geopolitique_major
+    quality: 77
+    language: fr
+    url: "https://news.google.com/rss/search?q=((sanctions%20OR%20%22droits%20de%20douane%22%20OR%20p%C3%A9trole%20OR%20gaz%20OR%20%C3%A9nergie%20OR%20%22transport%20maritime%22%20OR%20%22cha%C3%AEne%20d%27approvisionnement%22%20OR%20commerce)%20AND%20(finance%20OR%20assurance%20OR%20march%C3%A9s%20OR%20inflation%20OR%20r%C3%A9assurance%20OR%20banque))%20-football%20-rugby%20-sport%20when:3d&hl=fr&gl=FR&ceid=FR:fr"
     enabled: true

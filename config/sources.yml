@@ -1,6 +1,6 @@
 settings:
   freshness_hours: 72
-  max_articles_per_day: 18
+  max_articles_per_day: 24
   top_n: 5
   min_score: 45
   timeout_seconds: 20
@@ -163,14 +163,6 @@ sources:
   # -----------------------------
   # GÉOPOLITIQUE / POLITIQUE À IMPACT
   # -----------------------------
-  - id: consilium_press
-    name: Council of the EU - Press releases
-    kind: rss
-    category: politique_europeenne
-    quality: 93
-    language: en
-    url: https://www.consilium.europa.eu/en/rss/pressreleases.ashx
-    enabled: true
 
   - id: ec_trade_news
     name: European Commission - EU Trade News
@@ -225,9 +217,9 @@ sources:
     name: Google News - DORA / LCB-FT / conformité FR
     kind: rss
     category: regulation_institutions
-    quality: 78
+    quality: 99
     language: fr
-    url: "https://news.google.com/rss/search?q=((DORA%20OR%20LCB-FT%20OR%20AML%20OR%20KYC%20OR%20%22lutte%20contre%20le%20blanchiment%22%20OR%20%22sanctions%20financi%C3%A8res%22%20OR%20%22cybers%C3%A9curit%C3%A9%20financi%C3%A8re%22)%20AND%20(banque%20OR%20assurance%20OR%20finance%20OR%20assureur%20OR%20r%C3%A9gulateur))%20-football%20-rugby%20-sport%20when:3d&hl=fr&gl=FR&ceid=FR:fr"
+    url: "https://news.google.com/rss/search?q=assurance%20OR%20assureur%20OR%20assureurs&hl=fr&gl=FR&ceid=FR:fr"
     enabled: true
 
   - id: google_geopolitique_finance_fr

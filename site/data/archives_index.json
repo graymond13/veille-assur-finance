@@ -217,8 +217,14 @@
   },
   "2026-04-21": {
     "date": "2026-04-21",
-    "count": 0,
-    "top_titles": [],
+    "count": 18,
+    "top_titles": [
+      "ESMA launches a call for evidence on restricted subscription and private credit ratings 16/04/2026 The European Securities and Markets Authority (ESMA), the EU’s financial markets regulator",
+      "New investment funds drive reduction in costs to investors 03/03/2026 The European Securities and Markets Authority (ESMA), the EU financial markets regul",
+      "ESMA releases reporting templates and instructions for the Active Account Requirement 13/04/2026 The European Securities and Markets Authority (ESMA), the EU’s financial markets regulator",
+      "ESMA publishes latest edition of its newsletter 10/04/2026 The European Securities and Markets Authority (ESMA), the EU’s financial markets regulator",
+      "ESMA sets out actions to simplify the retail investor journey and make investing more accessible 12/03/2026 The European Securities and Markets Authority (ESMA), the EU’s financial markets reg"
+    ],
     "path": "archive/2026-04-21.html"
   }
 }
